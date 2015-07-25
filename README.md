@@ -28,4 +28,27 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 ```php
-<?= \yii2renderdual\AutoloadExample::widget(); ?>```
+<?php
+
+...
+use yii2renderdual\RenderDualBehavior;
+
+class SiteController extends Controller
+{
+    public function behaviors()
+    {
+        return [
+            ...
+            \yii2renderdual\RenderDualBehavior::className()
+        ];
+    }
+
+    public function actionIndex()
+    {
+        \Yii::$app->session->setFlash('success', 'Welcome on this page');
+
+        return $this->renderDual('index', [
+            'foo' => 'bar'
+        ]);
+    }
+```
