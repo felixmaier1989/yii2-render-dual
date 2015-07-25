@@ -1,0 +1,24 @@
+{
+    "name": "felixmaier1989/yii2-render-dual",
+    "description": "Make your actions compatible for Ajax requests",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","ajax","request","render","view", "action"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "felixmaier1989",
+            "email": "felixmaier1989@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "yii2renderdual\\": "src"
+        }
+    }
+}
