@@ -1,10 +1,9 @@
 <?php
 
 namespace yii2renderdual;
-require 'RenderDualBehavior.php'; // @todo autoload with composer
 
 use Yii;
-use yiiunit\TestCase;
+use yiiunit\TestCase; // @todo Find a way to fetch this classes. Seems like its not included in any package
 use yii\web\Request;
 use yii\web\Controller;
 use yii\db\ActiveRecord;
