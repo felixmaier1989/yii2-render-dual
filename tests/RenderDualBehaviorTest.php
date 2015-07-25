@@ -7,15 +7,15 @@ use yiiunit\TestCase; // @todo Find a way to fetch this classes. Seems like its 
 use yii\web\Request;
 use yii\web\Controller;
 use yii\db\ActiveRecord;
-use RenderDualBehavior;
+use RenderDual;
 
 /**
- * Unit test for [[\yii2renderdual\RenderDualBehavior]].
- * @see RenderDualBehavior
+ * Unit test for [[\yii2renderdual\RenderDual]].
+ * @see RenderDual
  *
  * @group behaviors
  */
-class RenderDualBehaviorTest extends TestCase
+class RenderDualTest extends TestCase
 {
 
     /**
@@ -41,7 +41,7 @@ class RenderDualBehaviorTest extends TestCase
     public function testRenderDualNotController()
     {
         $controller = new \yii\db\ActiveRecord();
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $this->setExpectedException('Exception');
         $render = $controller->renderDual('view', ['foo' => 'bar'], 'foo bar');
     }
@@ -54,7 +54,7 @@ class RenderDualBehaviorTest extends TestCase
         $this->_mockApplication(true);
 
         $controller = $this->getMock('\yii\web\Controller', ['render'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->once())
             ->method('render')
@@ -77,7 +77,7 @@ class RenderDualBehaviorTest extends TestCase
         $this->_mockApplication(true);
 
         $controller = $this->getMock('\yii\web\Controller', ['render'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->once())
             ->method('render')
@@ -100,7 +100,7 @@ class RenderDualBehaviorTest extends TestCase
         $this->_mockApplication(true);
 
         $controller = $this->getMock('\yii\web\Controller', ['render'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->once())
             ->method('render')
@@ -123,7 +123,7 @@ class RenderDualBehaviorTest extends TestCase
         $this->_mockApplication(true);
 
         $controller = $this->getMock('\yii\web\Controller', ['render'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->once())
             ->method('render')
@@ -146,7 +146,7 @@ class RenderDualBehaviorTest extends TestCase
         $this->_mockApplication(true);
 
         $controller = $this->getMock('\yii\web\Controller', ['render'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->once())
             ->method('render')
@@ -182,7 +182,7 @@ class RenderDualBehaviorTest extends TestCase
             ->will($this->returnValue('<h1>Output</h1>'));
 
         $controller = $this->getMock('\yii\web\Controller', ['findLayoutFile', 'getView'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->any())
             ->method('getView')
@@ -214,7 +214,7 @@ class RenderDualBehaviorTest extends TestCase
             ->will($this->returnValue('<h1>Layout</h1>'));
 
         $controller = $this->getMock('\yii\web\Controller', ['findLayoutFile', 'getView'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->any())
             ->method('getView')
@@ -235,7 +235,7 @@ class RenderDualBehaviorTest extends TestCase
         $this->_mockApplication(false);
 
         $controller = $this->getMock('\yii\web\Controller', ['render'], ['controllerTest', 'moduleTest']);
-        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDualBehavior);
+        $controller->attachBehavior('RenderDual', new \yii2renderdual\RenderDual);
         $controller
             ->expects($this->once())
             ->method('render')

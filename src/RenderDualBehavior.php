@@ -5,7 +5,7 @@ namespace yii2renderdual;
 use yii\base\Behavior;
 
 /**
- * RenderDualBehavior provides a simple way to handle actions which should behave differently if called
+ * RenderDual provides a simple way to handle actions which should behave differently if called
  * in an Ajax request or not
  *
  * You only need to call $this->renderDual() instead of $this->render to make your Ajax request returning
@@ -16,13 +16,13 @@ use yii\base\Behavior;
  * public function behaviors()
  * {
  *     return [
- *         \yii2renderdual\RenderDualBehavior::className(),
+ *         \yii2renderdual\RenderDual::className(),
  *     ];
  * }
  * ~~~
  *
  */
-class RenderDualBehavior extends Behavior
+class RenderDual extends Behavior
 {
     /**
      * Renders a view for both Ajax and non-Ajax requests
@@ -79,7 +79,7 @@ class RenderDualBehavior extends Behavior
     private function __attachedToController() {
         if (!is_subclass_of($this->owner, '\yii\web\Controller')) {
             throw new \Exception(sprintf(
-                'RenderDualBehavior is restricted to controllers. Class %s should extend class %s',
+                'RenderDual is restricted to controllers. Class %s should extend class %s',
                 get_class($this->owner),
                 '\yii\web\Controller'
             ));
