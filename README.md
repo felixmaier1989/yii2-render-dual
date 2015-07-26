@@ -10,7 +10,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist felixmaier1989/yii2-render-dual "*"
+php composer.phar require --prefer-dist felixmaier1989/yii2-renderdual "*"
 ```
 
 or add
@@ -25,11 +25,9 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply use it in your code by extending your controller:
 
 ```php
-<?php
-
 ...
 use yii2renderdual\RenderDual;
 
@@ -43,12 +41,35 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionAbout()
     {
-        \Yii::$app->session->setFlash('success', 'Welcome on this page');
-
-        return $this->renderDual('index', [
-            'foo' => 'bar'
-        ]);
+        Yii::$app->session->setFlash('success', 'Welcome on my home page');
+        $fruits = ['banana', 'apple', 'jackfruit', 'papaya'];
+        return $this->renderDual('about', compact('fruits'), true);
     }
+...
+```
+
+An Ajax call to your `site/about` action would then return
+
+```
+Array
+(
+    [flashes] => Array
+        (
+            [success] => Welcome on my home page
+        )
+    [params] => Array
+        (
+            [fruits] => Array
+                (
+                    [0] => banana
+                    [1] => apple
+                    [2] => jackfruit
+                    [3] => papaya
+                )
+
+        )
+    [rendered] => <h1>About</h1><p>I like banana, apple, jackfruit, papaya</p>
+)
 ```
