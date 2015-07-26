@@ -16,7 +16,7 @@ php composer.phar require --prefer-dist felixmaier1989/yii2-render-dual "*"
 or add
 
 ```
-"felixmaier1989/yii2-render-dual": "*"
+"felixmaier1989/yii2-renderdual": "*"
 ```
 
 to the require section of your `composer.json` file.
@@ -31,7 +31,7 @@ Once the extension is installed, simply use it in your code by  :
 <?php
 
 ...
-use yii2renderdual\RenderDualBehavior;
+use yii2renderdual\RenderDual;
 
 class SiteController extends Controller
 {
@@ -39,7 +39,7 @@ class SiteController extends Controller
     {
         return [
             ...
-            \yii2renderdual\RenderDualBehavior::className()
+            \yii2renderdual\RenderDual::className()
         ];
     }
 

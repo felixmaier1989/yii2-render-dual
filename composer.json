@@ -1,5 +1,5 @@
 {
-    "name": "felixmaier1989/yii2-render-dual",
+    "name": "felixmaier1989/yii2-renderdual",
     "description": "Make your actions compatible for Ajax requests",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","ajax","request","render","view", "action"],
