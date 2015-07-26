@@ -69,7 +69,7 @@ class RenderDual extends Behavior
         }
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return compact('rendered', 'flashes', 'params');
+        return compact('flashes', 'params', 'rendered');
     }
 
     /**
