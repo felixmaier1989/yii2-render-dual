@@ -10,7 +10,7 @@ use yii\base\Behavior;
  *
  * You only need to call $this->renderDual() instead of $this->render to make your Ajax request returning
  * rendered view, flash messages and additional data in a JSON response.
- * The rest of your action script statys untouched, just like processing a normal server request.
+ * The rest of your action script stays untouched, just like processing a normal server request.
  *
  * ~~~
  * public function behaviors()
@@ -29,16 +29,16 @@ class RenderDual extends Behavior
      *
      * If Non-Ajax request, this method will behave just like \yii\web\Controller::render()
      * If Ajax-request, a JSON-serialized array will be returned, containing:
-     * - string ouput The rendered view, without layout
+     * - string rendered The rendered view, without layout
      * - array flashes Flash messages previously set
-     * - array data additional data
+     * - array params additional data
      *
      * @param string $view the view name.
      * @param array $params the parameters (name-value pairs) that should be made available in the view.
      * These parameters will not be available in the layout.
      * @param boolean|array $ajaxResponseData
      * - If true, view params will be in the Ajax response.
-     * Be careful of not passingnot to pass sensitive data.
+     * Be careful not to pass sensitive data.
      * E.g. you pass an ActiveRecord object to the view.
      * Your visitor can see the response of the Ajax request and would have access to the whole model structure
      * - If false, no view params

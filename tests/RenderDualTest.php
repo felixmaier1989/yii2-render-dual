@@ -3,7 +3,7 @@
 namespace yii2renderdual;
 
 use Yii;
-use yiiunit\TestCase; // @todo Find a way to fetch this classes. Seems like its not included in any package
+use yiiunit\TestCase; // @todo Find a way to fetch this class. Seems like its not included in any package
 use yii\web\Request;
 use yii\web\Controller;
 use yii\db\ActiveRecord;
