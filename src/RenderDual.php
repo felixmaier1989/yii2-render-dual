@@ -54,22 +54,22 @@ class RenderDual extends Behavior
             return $this->owner->render($view, $params);
 
         $this->owner->layout = false;
-        $output = $this->owner->render($view, $params);
+        $rendered = $this->owner->render($view, $params);
 
         $flashes = \Yii::$app->session->getAllFlashes(true);
 
         if ($ajaxResponseData === false) {
-            $data = [];
+			$params = [];
         } elseif ($ajaxResponseData === true) {
-            $data = $params;
+			$params = $params;
         } elseif (is_array($ajaxResponseData)) {
-            $data = $ajaxResponseData;
+			$params = $ajaxResponseData;
         } else {
             throw new \InvalidArgumentException('Parameter $ajaxResponseData only accepts values false|true|array');
         }
 
         \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        return compact('output', 'flashes', 'data');
+        return compact('rendered', 'flashes', 'params');
     }
 
     /**

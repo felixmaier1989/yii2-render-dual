@@ -89,7 +89,7 @@ class RenderDualTest extends TestCase
 
         $render = $controller->renderDual('view', ['foo' => 'bar'], ['alpha' => 'bravo']);
 
-        $this->assertEquals(['alpha' => 'bravo'], $render['data']);
+        $this->assertEquals(['alpha' => 'bravo'], $render['params']);
     }
 
     /**
@@ -112,7 +112,7 @@ class RenderDualTest extends TestCase
 
         $render = $controller->renderDual('view', ['foo' => 'bar'], true);
 
-        $this->assertEquals(['foo' => 'bar'], $render['data']);
+        $this->assertEquals(['foo' => 'bar'], $render['params']);
     }
 
     /**
@@ -135,7 +135,7 @@ class RenderDualTest extends TestCase
 
         $render = $controller->renderDual('view', ['foo' => 'bar'], false);
 
-        $this->assertEmpty($render['data']);
+        $this->assertEmpty($render['params']);
     }
 
     /**
@@ -162,7 +162,7 @@ class RenderDualTest extends TestCase
         $render = $controller->renderDual('view', ['foo' => 'bar']);
 
         $this->assertEquals(\yii\web\Response::FORMAT_JSON, \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON);
-        $this->assertEquals('<h1>Output</h1>', $render['output']);
+        $this->assertEquals('<h1>Output</h1>', $render['rendered']);
         $this->assertEquals('An error has occured', $render['flashes']['error']);
         $this->assertEquals('But everything is fine', $render['flashes']['success']);
     }
